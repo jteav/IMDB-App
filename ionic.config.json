@@ -1,0 +1,7 @@
+{
+  "name": "imdbApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
