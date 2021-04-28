@@ -13,12 +13,17 @@ export class MediaPage implements OnInit {
   searchTerm = '';
   type: SearchType = SearchType.all;
 
+  /**
+   * Constructor of our first page
+   * @param movieService The movie Service to get data
+   */
   constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
   }
 
   searchChanged() {
+    // Call the service function which returns an Observable
     this.results = this.mediaService.searchData(this.searchTerm, this.type);
   }
 
