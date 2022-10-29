@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'media/:id',
     loadChildren: () => import('./pages/media-details/media-details.module').then( m => m.MediaDetailsPageModule)
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+  },
 ];
 
 @NgModule({
