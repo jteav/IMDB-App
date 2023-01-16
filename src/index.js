@@ -1,17 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value})
+    }
+
+    handleSubmit(event) {
+        console.log(this.state.value)
+        event.preventDefault()
+    }
+
+    render() {
+        return (
+            <div className="container mt-3">
+                <form onSubmit={this.handleSubmit} className="input-group">
+                    <input type="text" className="form-control" placeholder="Search" value={this.state.value} onChange={this.handleChange}></input>
+                    <input type="submit" className="btn btn-primary" value="Search"></input>
+                </form>
+            </div>
+        )
+    }
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Home/>);
